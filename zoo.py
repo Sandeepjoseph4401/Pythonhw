@@ -8,7 +8,6 @@ Class: Zoo
 
 '''
 
-
 class zoo:
     def __init__(self, name):
         self.name = name
@@ -51,11 +50,11 @@ class zoo:
                   
            
 
-Animals   = ['elephant', 'tiger', 'lion', 'beer']
+Animals   = ['elephant', 'tiger', 'lion', 'bear']
 
 hints     = [
                 ['I am the largest land-living mammal in the world',
-                 'I have two trunks',
+                 'I have two tusks',
                  'My Name starts with e and ends with t'],
                 
                 ['I am the biggest cat',
@@ -87,5 +86,3 @@ for Animal in Animals:
     Aobj = zoo(Animal)
     Aobj.guess_who_am_i()
 
-
-	
