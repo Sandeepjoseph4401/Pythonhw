@@ -14,7 +14,7 @@ Author      : Sandeep Joseph
 
 from wsgiref.simple_server import make_server
 import sqlite3
-message  = ""
+
 
 
 def get_form_vals(post_str):
@@ -24,7 +24,8 @@ def get_form_vals(post_str):
 def listBuild(form_vals):
 
     for item in form_vals.keys():
-        message   += "<br/>"+item + " = " + form_vals[item]
+        #message   += "<br/>"+item + " = " + form_vals[item]
+        
         if item   == "count":
             l1     =  form_vals[item]
         elif item == "animal":
@@ -35,7 +36,7 @@ def listBuild(form_vals):
     return listAnimal
     
 def ZooDBWeb(environ, start_response):
-
+        message = ""
         status  = '200 OK'
         headers = [('Content-type', 'html; charset=utf-8')]
         start_response(status, headers)
@@ -61,6 +62,15 @@ def ZooDBWeb(environ, start_response):
 
                 else:
                     print("Unexpected Error!!Sorry")
+                message += "<table border =\"4\" allign=\"center\" BCOLOR = \"black\">"
+   
+                message += "<td>"+'Animal'+"</td><td>"+'Count'+"</td>"
+                for row in result:  
+                    list(row)
+                    message+="<tr>"
+                    message += "<td>"+str(row[0])+"</td><td>"+str(row[1])+"</td>"
+
+                message+="</table>"
                 conn.commit()
                 conn.close()
 
